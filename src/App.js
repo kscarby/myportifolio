@@ -9,12 +9,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Header />
         <Routes>
-          <Route path='/header' element={<Header />}></Route>
-          <Route path='/body' element={<Body />}></Route>
-          <Route path='/footer' element={<Footer />}></Route>
+          <Route path='/' element={<Body />} />
         </Routes>
-      </BrowserRouter>      
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
