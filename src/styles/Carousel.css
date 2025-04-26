@@ -1,0 +1,56 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Garante que nada vaze pra fora */
+    padding: 20px;
+    box-sizing: border-box; /* Impede que padding quebre o width */
+  }
+  
+  .carousel-images {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 16px;
+    padding: 10px;
+    box-sizing: border-box; /* Também evita estourar */
+  }
+  
+  .carousel-image {
+    flex: 0 0 auto;
+    width: 250px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    user-select: none;
+    pointer-events: none;
+  }
+  
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .carousel-button.left {
+    left: 10px;
+  }
+  
+  .carousel-button.right {
+    right: 10px;
+  }
+  
+  .carousel-button:hover {
+    background-color: #f0f0f0;
+  }
+  
