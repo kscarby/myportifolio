@@ -21,7 +21,7 @@ const Body = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={sectionVariants}
       >
-        <h1 className="aboutme-title">Sobre (About Me)</h1>
+        <h1 className="aboutme-title">Sobre</h1>
         <div>
           {Aboutme[0].text.split('\n\n').map((paragrafo, index) => (
             <p key={index}>{paragrafo}</p>
@@ -37,7 +37,7 @@ const Body = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={sectionVariants}
       >
-        <h1 className="portfolio-title">Portfólio (Work/Portfolio)</h1>
+        <h1 className="portfolio-title">Meus projetos</h1>
         <Carousel/>
       </motion.section>
 
@@ -48,7 +48,7 @@ const Body = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={sectionVariants}
       >
-        <h1 className="services-title">Serviços (Services)</h1>
+        <h1 className="services-title">Serviços</h1>
       </motion.section>
 
       <motion.section
@@ -68,7 +68,7 @@ const Body = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={sectionVariants}
       >
-        <h1 className="contact-title">Contato (Contact)</h1>
+        <h1 className="contact-title">Contato</h1>
       </motion.section>
     </div>
   );

@@ -13,12 +13,12 @@ button {
   background-color: white;
   width: 150px;
   height: 40px;
-  border: 5px solid black;
   border-radius: 20px;
 }
 
 button:hover {
-  background-color: wheat;
+  cursor: pointer;
+  background-color: #c9c4c4;
 }
 
 @media (prefers-reduced-motion: no-preference) {

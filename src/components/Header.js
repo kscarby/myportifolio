@@ -14,9 +14,11 @@ const Header = () => {
       </div>
       {Portifolio.map((text, index) => (
         <div className='container-item' key={index}>
-          <h1 className='title'>Olá, sou a {text.title}</h1>
-          <h2 className='subtitle'>Sou formada em {text.subtitle}</h2>
+          <h1 className='title'>{text.title}</h1>
+          <h2 className='subtitle'>{text.subtitle}</h2>
           <p className='bio'>{text.bio}</p>
+          <button>Meus projetos</button>
+          <button>Currículo</button>
         </div>
       ))}
       <div className='container-social'>

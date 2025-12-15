@@ -1,56 +1,120 @@
 .carousel-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden; /* Garante que nada vaze pra fora */
-    padding: 20px;
-    box-sizing: border-box; /* Impede que padding quebre o width */
-  }
+  margin: auto;
+  position: relative;
+  width: auto;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.carousel-images {
+  display: flex;
+  gap: 20px;
+  padding: 0 50px;
+  box-sizing: border-box;
+  justify-content: center;
+  scroll-snap-type: x mandatory;
+}
+
+
+.carousel-slide {
+  margin: auto;
+  background: white;
+  border-radius: 30px;
+  width: 350px;
+  height: 400px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 4px white;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.carousel-text-overlay {
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  backdrop-filter: blur(2px);
+  font-size: 16px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: solid 3px black;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-bt {
+  position: absolute;
+  top: 80%;
   
-  .carousel-images {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 16px;
-    padding: 10px;
-    box-sizing: border-box; /* Também evita estourar */
-  }
+}
+
+.img-git {
+  margin: 2px;
+  padding: 10px;
+  width: 15%;
+  height: auto;
+  background-color: #fff;
+  border-radius: 25%;
+}
+
+.img-tv {
+  margin: 2px;
+  padding: 10px;
+  width: 15%;
+  height: auto;
+  background-color: #fff;
+  border-radius: 25%;
+}
+
+.carousel-button.left {
+  left: 10px;
   
-  .carousel-image {
-    flex: 0 0 auto;
-    width: 250px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 12px;
-    user-select: none;
-    pointer-events: none;
-  }
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+.carousel-button.left:hover {
+  background-color: crimson;
+}
+
+.img-tv:hover {
+  box-shadow: 0 0 0 3px black;
+}
+
+.img-git:hover {
+  box-shadow: 0 0 0 3px black;
   
-  .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: white;
-    border: none;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .carousel-button.left {
-    left: 10px;
-  }
-  
-  .carousel-button.right {
-    right: 10px;
-  }
-  
-  .carousel-button:hover {
-    background-color: #f0f0f0;
-  }
-  
+}
+
+
