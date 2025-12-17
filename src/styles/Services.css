@@ -1,0 +1,41 @@
+.services-grid {
+    margin: auto;
+    display: grid;
+    width: 1110px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.service-card {
+    margin: auto;
+    height: 300px;
+    width: 350px;
+    border-radius: 12px;
+    border: solid, 3px, rgb(0, 0, 0);
+    background-color: rgba(255, 208, 0, 0.527);
+
+}
+.service-card h3 {
+    font-size: 20px;
+    
+}
+.service-card p {
+    margin: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.service-card ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px; /* Espaçamento interno */
+    margin-left: 0; /* Remove margem padrão */
+}
+
+.service-card li {
+    list-style: none;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 8px; 
+}

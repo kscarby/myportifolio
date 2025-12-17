@@ -11,14 +11,14 @@ button {
   color: rgb(0, 0, 0);
   font-size: large;
   background-color: white;
-  width: 150px;
+  width: 140px;
   height: 40px;
   border-radius: 20px;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: #c9c4c4;
+  background-color: #6aa8fa;
 }
 
 @media (prefers-reduced-motion: no-preference) {

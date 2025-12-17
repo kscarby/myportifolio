@@ -1,8 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import '../styles/Carousel.css';
 import { PortifolioProjects } from '../components/Informations';
+
 
 import img1 from '../assets/img1.png';
 import img2 from '../assets/img2.png';
@@ -32,29 +33,85 @@ const linkMap = [
     github: "https://github.com/kscarby/nossocapitulo",
     project: "#",
   },
+
+  {
+    id: 3,
+    github: "https://github.com/kscarby/amelier-crochet/",
+    project: "https://amelier-crochet.web.app/",
+  },
+  {
+    id: 4,
+    github: "https://github.com/kscarby/kscarby.github.io",
+    project: "https://kscarby.github.io",
+  },
+  {
+    id: 5,
+    github: "https://github.com/kscarby/nossocapitulo",
+    project: "#",
+  },
 ];
 
 const Carousel = () => {
   const carouselRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
 
   const openLink = (url) => {
     if (!url || url === "#") return;
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const scrollLeft = () => {
-    carouselRef.current?.scrollBy({ left: -300, behavior: 'smooth' });
+  const scrollByCards = (direction = 1) => {
+    const container = carouselRef.current;
+    if (!container) return;
+
+    const card = container.querySelector(".carousel-slide-wrapper");
+    if (!card) return;
+
+    const cardWidth = card.offsetWidth;
+    const gap = parseInt(getComputedStyle(container).gap || 0, 10);
+
+    const scrollAmount = (cardWidth + gap) * 3 * direction;
+
+    container.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
   };
 
-  const scrollRight = () => {
-    carouselRef.current?.scrollBy({ left: 300, behavior: 'smooth' });
+useEffect(() => {
+  const container = carouselRef.current;
+  if (!container) return;
+
+  const checkScroll = () => {
+    setCanScrollLeft(container.scrollLeft > 0);
+    setCanScrollRight(
+      container.scrollLeft + container.clientWidth < container.scrollWidth
+    );
   };
+
+  checkScroll();
+  container.addEventListener("scroll", checkScroll);
+  window.addEventListener("resize", checkScroll);
+
+  return () => {
+    container.removeEventListener("scroll", checkScroll);
+    window.removeEventListener("resize", checkScroll);
+  };
+}, []);
+
+
 
   return (
     <div className="carousel-container">
-      <button className="carousel-button left" onClick={scrollLeft}>
+      {canScrollLeft && (
+      <button className="carousel-button left" 
+      onClick={() => scrollByCards(-1)}
+      disabled={!canScrollLeft}
+      >
         <ChevronLeft size={32} />
       </button>
+      )}
 
       <motion.div
         className="carousel-images"
@@ -101,10 +158,14 @@ const Carousel = () => {
           );
         })}
       </motion.div>
-
-      <button className="carousel-button right" onClick={scrollRight}>
+      {canScrollRight && (
+      <button className="carousel-button right" 
+      onClick={() => scrollByCards(1)}
+      disabled={!canScrollRight}
+      >
         <ChevronRight size={32} />
       </button>
+      )}
     </div>
   );
 };

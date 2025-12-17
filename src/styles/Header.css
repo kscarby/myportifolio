@@ -5,7 +5,7 @@
 }
 .header-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 2fr)); /* Define o número de colunas */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 2fr)); /* Define o número de colunas */
     gap: 20px; /* Espaço entre os itens */
     padding: 20px;
     margin-top: 20px;
@@ -14,8 +14,17 @@
 }
 
 .container-item {
-    grid-column: span 2;
+    grid-column: span 3;
     transition: transform 0.3s ease;
+}
+.container-button {
+    display: flex;
+    justify-content: center;
+    width: 900px;
+}
+
+.container-button button {
+    margin: 3px;
 }
 
 .container-profile {
@@ -33,10 +42,15 @@
 }
 
 .container-social {
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
-    width: 25%;
-    height: auto;
+    justify-content: center;
+    width: 900px;
+}
+
+.container-social img {
+    height: 60px;
+    width: 60px;
 }
 
 .social {
@@ -49,10 +63,9 @@
     transform: translateY(-5px);
 }
 
-@media (max-width: 600px) {
-    .container-social {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
 
+@media (max-width: 1500px) {
+    .container-item {
+    grid-column: span 2;
+}
+}
